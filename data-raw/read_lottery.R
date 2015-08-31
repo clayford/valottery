@@ -1,0 +1,113 @@
+# Mega Millions
+mm_url <- "https://www.valottery.com/download_numbers.aspx?game=15"
+mm_data <- readLines(mm_url, warn = FALSE)
+
+# Power Ball
+pb_url <- "https://www.valottery.com/download_numbers.aspx?game=20"
+pb_data <- readLines(pb_url, warn = FALSE)
+
+# cash4life
+c4l_url <-  "https://www.valottery.com/download_numbers.aspx?game=1065"
+c4l_data <- readLines(c4l_url, warn=FALSE)
+
+# $1,000,000 money ball
+mmb_url <- "https://www.valottery.com/download_numbers.aspx?game=1060"
+mmb_data <- readLines(mmb_url, warn=FALSE)
+
+# Decades of Dollars (discontinued)
+dd_url <- "https://www.valottery.com/download_numbers.aspx?game=25"
+dd_data <- readLines(dd_url, warn = FALSE)
+
+# Cash 5
+c5_url <- "https://www.valottery.com/download_numbers.aspx?game=1030"
+c5_data <- readLines(c5_url, warn=FALSE)
+
+# Pick 4
+p4_url <- "https://www.valottery.com/download_numbers.aspx?game=1040"
+p4_data <- readLines(p4_url, warn=FALSE)
+
+# Pick 3
+p3_url <- "https://www.valottery.com/download_numbers.aspx?game=1050"
+p3_data <- readLines(p3_url, warn=FALSE)
+
+save(mm_data, pb_data, c4l_data, mmb_data, dd_data, c5_data, p4_data, p3_data, file="data-raw/rawData.Rda")
+
+# explore
+lapply(ls(pattern = "_data$"), function(x)head(get(x)))
+
+
+# Mega Millions -----------------------------------------------------------
+# October 22, 2013, format changed from 5/56 + 1/46 to the current 5/75 + 1/15 format
+
+mega.mill <- mm_data[grepl(pattern = "^[0-9]",mm_data)]
+mega.mill <- strsplit(mega.mill,split = ";")
+mega.mill <- as.data.frame(do.call(what = rbind,args = mega.mill))
+
+names(mega.mill) <- c("date","numbers","megaball")
+mega.mill$date <- as.Date(as.character(mega.mill$date),format="%m/%d/%Y")
+mega.mill$megaball <- as.numeric(sub(" Money Ball: | Mega Ball: ","",
+                                 as.character(mega.mill$megaball)))
+numbers <- do.call(rbind,strsplit(as.character(mega.mill$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+mega.mill <- cbind(mega.mill,numbers)
+mega.mill$numbers <- NULL
+names(mega.mill)[3:7] <- c("N1","N2","N3","N4","N5")
+rm(numbers)
+
+
+mega.mill.1 <- mega.mill[mega.mill$date < "2013-10-22",]
+# summary(mm_data_1$megaball)
+# barplot(table(mm_data_1$megaball))
+mega.mill.2 <- mega.mill[mega.mill$date >= "2013-10-22",]
+# summary(mm_data_2$megaball)
+# barplot(table(mm_data_2$megaball))
+
+save(mega.mill.1, file="data/mega.mill.1.rdata")
+save(mega.mill.2, file="data/mega.mill.2.rdata")
+
+# examples?
+# library(reshape2)
+# dflot3 <- melt(dflot2,id.vars = c("date","megaball"),
+#                variable.name = "draw",value.name = "number")
+# dflot3 <- dflot3[order(dflot3$date),]
+# rownames(dflot3) <- NULL
+# # some analysis
+# hist(dflot3$number)
+# barplot(table(dflot3$number))
+#
+# dflot3_15 <- subset(dflot3,date > "2015-01-01")
+#
+#
+#
+# minNums <- with(dflot3_15, tapply(number, date, min))
+# median(minNums)
+# table(minNums)
+# barplot(table(minNums),horiz = TRUE,las=1)
+#
+# maxNums <- with(dflot3_15, tapply(number, date, max))
+# median(maxNums)
+# table(maxNums)
+# barplot(table(maxNums),horiz = TRUE,las=1)
+
+# Powerball ---------------------------------------------------------------
+
+power.ball <- pb_data[grepl(pattern = "^[0-9]",pb_data)]
+power.ball <- strsplit(power.ball,split = ";")
+power.ball <- as.data.frame(do.call(what = rbind,args = power.ball))
+
+names(power.ball) <- c("date","numbers","powerball")
+power.ball$date <- as.Date(as.character(power.ball$date),format="%m/%d/%Y")
+power.ball$powerball <- as.numeric(sub("Powerball:","",
+                                 as.character(power.ball$powerball)))
+numbers <- do.call(rbind,strsplit(as.character(power.ball$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+power.ball <- cbind(power.ball,numbers)
+power.ball$numbers <- NULL
+names(power.ball)[3:7] <- c("N1","N2","N3","N4","N5")
+
+save(power.ball, file="data/power.ball.rdata")
+
+
+# Cash 4 Life -------------------------------------------------------------
+
+
