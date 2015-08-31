@@ -162,3 +162,50 @@ decades.of.dollars$numbers <- NULL
 names(decades.of.dollars)[2:7] <- c("N1","N2","N3","N4","N5","N6")
 
 save(decades.of.dollars, file="data/decades.of.dollars.rdata")
+
+
+
+# Cash 5 ------------------------------------------------------------------
+# On April 11, 1999, Cash 5 switched to twice daily drawings
+cash.5 <- c5_data[grepl(pattern = "^[0-9]",c5_data)]
+cash.5 <- strsplit(cash.5,split = ";")
+spt <- which(diff(sapply(cash.5,length))!=0)
+
+cash.5.1xday <- cash.5[(spt+1):length(cash.5)]
+cash.5.2xday <- cash.5[1:spt]
+
+cash.5.1xday <- as.data.frame(do.call(what = rbind,args = cash.5.1xday))
+cash.5.2xday <- as.data.frame(do.call(what = rbind,args = cash.5.2xday))
+
+# Cash 5 (1x day drawing)
+names(cash.5.1xday) <- c("date","numbers")
+cash.5.1xday$date <- as.Date(as.character(cash.5.1xday$date),format="%m/%d/%Y")
+cash.5.1xday$numbers <- sub(" Night: ","",as.character(cash.5.1xday$numbers))
+numbers <- do.call(rbind,strsplit(as.character(cash.5.1xday$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+
+cash.5.1xday <- cbind(cash.5.1xday,numbers)
+cash.5.1xday$numbers <- NULL
+names(cash.5.1xday)[2:6] <- c("N1","N2","N3","N4","N5")
+
+save(cash.5.1xday, file="data/cash.5.1xday.rdata")
+
+# Cash 5 (twice daily drawings)
+names(cash.5.2xday) <- c("date","day","night")
+cash.5.2xday$date <- as.Date(as.character(cash.5.2xday$date),format="%m/%d/%Y")
+
+cash.5.2xday$day <- sub(" Day: ","",as.character(cash.5.2xday$day))
+cash.5.2xday$night <- sub(" Night: ","",as.character(cash.5.2xday$night))
+
+library(reshape2)
+cash.5.2xday <- melt(cash.5.2xday,id.vars = "date",variable.name = "time",value.name = "numbers")
+numbers <- do.call(rbind,strsplit(as.character(cash.5.2xday$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+
+cash.5.2xday <- cbind(cash.5.2xday,numbers)
+cash.5.2xday$numbers <- NULL
+names(cash.5.2xday)[3:7] <- c("N1","N2","N3","N4","N5")
+cash.5.2xday <- cash.5.2xday[order(cash.5.2xday$date, decreasing = TRUE),]
+rownames(cash.5.2xday) <- NULL
+save(cash.5.2xday, file="data/cash.5.2xday.rdata")
+
