@@ -88,3 +88,22 @@
 #' @source \url{https://www.valottery.com}
 #'
 "money.ball"
+
+#' Decades of Dollars
+#'
+#' Historical data for the Decades of Dollars game. You pick six (6) numbers,
+#' the Lottery will then select six (6) numbered balls.
+#' Note: This game was discontinued in favor of CASH4LIFE.
+#' @format A data frame with 443 rows and 7 variables:
+#' \describe{
+#'   \item{date}{date of draw}
+#'   \item{N1}{1st number in order}
+#'   \item{N2}{2nd number in order}
+#'   \item{N3}{3rd number in order}
+#'   \item{N4}{4th number in order}
+#'   \item{N5}{5th number in order}
+#'   \item{N6}{6th number in order}
+#' }
+#' @source \url{https://www.valottery.com}
+#'
+"decades.of.dollars"

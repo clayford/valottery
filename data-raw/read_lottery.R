@@ -144,3 +144,21 @@ money.ball$numbers <- NULL
 names(money.ball)[3:7] <- c("N1","N2","N3","N4","N5")
 
 save(money.ball, file="data/money.ball.rdata")
+
+
+# Decades of Dollars ------------------------------------------------------
+
+decades.of.dollars <- dd_data[grepl(pattern = "^[0-9]",dd_data)]
+decades.of.dollars <- strsplit(decades.of.dollars,split = ";")
+decades.of.dollars <- as.data.frame(do.call(what = rbind,args = decades.of.dollars))
+
+names(decades.of.dollars) <- c("date","numbers")
+decades.of.dollars$date <- as.Date(as.character(decades.of.dollars$date),format="%m/%d/%Y")
+
+numbers <- do.call(rbind,strsplit(as.character(decades.of.dollars$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+decades.of.dollars <- cbind(decades.of.dollars,numbers)
+decades.of.dollars$numbers <- NULL
+names(decades.of.dollars)[2:7] <- c("N1","N2","N3","N4","N5","N6")
+
+save(decades.of.dollars, file="data/decades.of.dollars.rdata")
