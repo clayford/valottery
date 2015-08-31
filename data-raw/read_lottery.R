@@ -110,4 +110,37 @@ save(power.ball, file="data/power.ball.rdata")
 
 # Cash 4 Life -------------------------------------------------------------
 
+cash.4.life <- c4l_data[grepl(pattern = "^[0-9]",c4l_data)]
+cash.4.life <- strsplit(cash.4.life,split = ";")
+cash.4.life <- as.data.frame(do.call(what = rbind,args = cash.4.life))
 
+names(cash.4.life) <- c("date","numbers","cashball")
+cash.4.life$date <- as.Date(as.character(cash.4.life$date),format="%m/%d/%Y")
+cash.4.life$cashball <- as.numeric(sub("Cash Ball:","",
+                                       as.character(cash.4.life$cashball)))
+numbers <- do.call(rbind,strsplit(as.character(cash.4.life$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+cash.4.life <- cbind(cash.4.life,numbers)
+cash.4.life$numbers <- NULL
+names(cash.4.life)[3:7] <- c("N1","N2","N3","N4","N5")
+
+save(cash.4.life, file="data/cash.4.life.rdata")
+
+
+# $1,000,000 money ball ---------------------------------------------------
+
+money.ball <- mmb_data[grepl(pattern = "^[0-9]",mmb_data)]
+money.ball <- strsplit(money.ball,split = ";")
+money.ball <- as.data.frame(do.call(what = rbind,args = money.ball))
+
+names(money.ball) <- c("date","numbers","moneyball")
+money.ball$date <- as.Date(as.character(money.ball$date),format="%m/%d/%Y")
+money.ball$moneyball <- factor(sub(" Money Ball: ","",
+                                       as.character(money.ball$moneyball)))
+numbers <- do.call(rbind,strsplit(as.character(money.ball$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+money.ball <- cbind(money.ball,numbers)
+money.ball$numbers <- NULL
+names(money.ball)[3:7] <- c("N1","N2","N3","N4","N5")
+
+save(money.ball, file="data/money.ball.rdata")

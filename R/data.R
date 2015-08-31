@@ -50,3 +50,41 @@
 #' @source \url{https://www.valottery.com}
 #'
 "power.ball"
+
+#' CASH4LIFE
+#'
+#' Historical data for the CASH4LIFE game. Pick five different numbers from 1 through 60;
+#' then select one Cash Ball number from 1 through 4.
+#' @format A data frame with 34 rows and 7 variables:
+#' \describe{
+#'   \item{date}{date of draw}
+#'   \item{cashball}{cash ball result}
+#'   \item{N1}{1st number in order}
+#'   \item{N2}{2nd number in order}
+#'   \item{N3}{3rd number in order}
+#'   \item{N4}{4th number in order}
+#'   \item{N5}{5th number in order}
+#' }
+#' @source \url{https://www.valottery.com}
+#'
+"cash.4.life"
+
+#' $1,000,000 Money Ball
+#'
+#' Historical data for the $1,000,000 Money Ball game. You pick five (5) numbers,
+#' the Lottery will then select five (5) numbered balls, and if the Gold Million Dollar
+#' Money Ball is drawn before all five (5) numbers have been selected, the top prize
+#' jumps to $1,000,000. Note: This game was discontinued 8/29/15.
+#' @format A data frame with 100 rows and 7 variables:
+#' \describe{
+#'   \item{date}{date of draw}
+#'   \item{moneyball}{money ball result}
+#'   \item{N1}{1st number in order}
+#'   \item{N2}{2nd number in order}
+#'   \item{N3}{3rd number in order}
+#'   \item{N4}{4th number in order}
+#'   \item{N5}{5th number in order}
+#' }
+#' @source \url{https://www.valottery.com}
+#'
+"money.ball"
