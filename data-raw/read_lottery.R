@@ -209,3 +209,52 @@ cash.5.2xday <- cash.5.2xday[order(cash.5.2xday$date, decreasing = TRUE),]
 rownames(cash.5.2xday) <- NULL
 save(cash.5.2xday, file="data/cash.5.2xday.rdata")
 
+
+# Pick 4 ------------------------------------------------------------------
+
+# On April 11, 1999, Cash 5 switched to twice daily drawings
+pick.4 <- p4_data[grepl(pattern = "^[0-9]",p4_data)]
+pick.4 <- strsplit(pick.4,split = ";")
+spt <- which(diff(sapply(pick.4,length))!=0)
+
+pick.4.1xday <- pick.4[(spt+1):length(pick.4)]
+pick.4.2xday <- pick.4[1:spt]
+
+pick.4.1xday <- as.data.frame(do.call(what = rbind,args = pick.4.1xday))
+pick.4.2xday <- as.data.frame(do.call(what = rbind,args = pick.4.2xday))
+
+# Pick 4 (1x day drawing)
+names(pick.4.1xday) <- c("date","numbers")
+pick.4.1xday$date <- as.Date(as.character(pick.4.1xday$date),format="%m/%d/%Y")
+pick.4.1xday$numbers <- sub(" Night: ","",as.character(pick.4.1xday$numbers))
+numbers <- do.call(rbind,strsplit(as.character(pick.4.1xday$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+
+pick.4.1xday <- cbind(pick.4.1xday,numbers)
+pick.4.1xday$numbers <- NULL
+names(pick.4.1xday)[2:5] <- c("N1","N2","N3","N4")
+
+save(pick.4.1xday, file="data/pick.4.1xday.rdata")
+
+# Cash 5 (twice daily drawings)
+names(pick.4.2xday) <- c("date","day","night")
+pick.4.2xday$date <- as.Date(as.character(pick.4.2xday$date),format="%m/%d/%Y")
+
+pick.4.2xday$day <- sub(" Day: ","",as.character(pick.4.2xday$day))
+pick.4.2xday$night <- sub(" Night: ","",as.character(pick.4.2xday$night))
+
+pick.4.2xday <- melt(pick.4.2xday,id.vars = "date",variable.name = "time",value.name = "numbers")
+numbers <- do.call(rbind,strsplit(as.character(pick.4.2xday$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+
+pick.4.2xday <- cbind(pick.4.2xday,numbers)
+pick.4.2xday$numbers <- NULL
+names(pick.4.2xday)[3:6] <- c("N1","N2","N3","N4")
+pick.4.2xday <- pick.4.2xday[order(pick.4.2xday$date, decreasing = TRUE),]
+rownames(pick.4.2xday) <- NULL
+save(pick.4.2xday, file="data/pick.4.2xday.rdata")
+
+
+# Pick 3 ------------------------------------------------------------------
+
+

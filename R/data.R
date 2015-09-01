@@ -16,7 +16,7 @@
 #'
 "mega.mill.1"
 
-#' Mega Millions (After 10/22/13)
+#' Mega Millions (10/22/13 and beyond)
 #'
 #' Historical data for the Mega Millions game. On October 22, 2013, the format changed
 #' from 5/56 + 1/46 to the current 5/75 + 1/15 format.
@@ -107,3 +107,71 @@
 #' @source \url{https://www.valottery.com}
 #'
 "decades.of.dollars"
+
+#' Cash 5 (once daily)
+#'
+#' Historical data for the Cash 5 once daily game. On April 11, 1999,
+#' Cash 5 switched to twice daily drawings.
+#' @format A data frame with 1187 rows and 6 variables:
+#' \describe{
+#'   \item{date}{date of draw}
+#'   \item{N1}{1st number in order}
+#'   \item{N2}{2nd number in order}
+#'   \item{N3}{3rd number in order}
+#'   \item{N4}{4th number in order}
+#'   \item{N5}{5th number in order}
+#' }
+#' @source \url{https://www.valottery.com}
+#'
+"cash.5.1xday"
+
+#' Cash 5 (twice daily)
+#'
+#' Historical data for the Cash 5 twice daily game. On April 11, 1999,
+#' Cash 5 switched to twice daily drawings.
+#' @format A data frame with 11,164 rows and 7 variables:
+#' \describe{
+#'   \item{date}{date of draw}
+#'   \item{time}{time of drawing: day or night}
+#'   \item{N1}{1st number in order}
+#'   \item{N2}{2nd number in order}
+#'   \item{N3}{3rd number in order}
+#'   \item{N4}{4th number in order}
+#'   \item{N5}{5th number in order}
+#' }
+#' @source \url{https://www.valottery.com}
+#'
+"cash.5.2xday"
+
+#' Pick 4 (once daily)
+#'
+#' Historical data for the Pick 4 once daily game. On January 30, 1995,
+#' Pick 4 switched to twice daily drawings.
+#' @format A data frame with 1041 rows and 5 variables:
+#' \describe{
+#'   \item{date}{date of draw}
+#'   \item{N1}{1st number in order}
+#'   \item{N2}{2nd number in order}
+#'   \item{N3}{3rd number in order}
+#'   \item{N4}{4th number in order}
+#' }
+#' @source \url{https://www.valottery.com}
+#'
+"pick.4.1xday"
+
+#' Pick 4 (twice daily)
+#'
+#' Historical data for the Pick 4 twice daily game. On January 30, 1995,
+#' Pick 4 switched to twice daily drawings.
+#' @format A data frame with 13788 rows and 6 variables:
+#' \describe{
+#'   \item{date}{date of draw}
+#'   \item{time}{time of drawing: day or night}
+#'   \item{N1}{1st number in order}
+#'   \item{N2}{2nd number in order}
+#'   \item{N3}{3rd number in order}
+#'   \item{N4}{4th number in order}
+#' }
+#' @source \url{https://www.valottery.com}
+#'
+"pick.4.2xday"
