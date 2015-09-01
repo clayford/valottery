@@ -62,8 +62,8 @@ mega.mill.2 <- mega.mill[mega.mill$date >= "2013-10-22",]
 # summary(mm_data_2$megaball)
 # barplot(table(mm_data_2$megaball))
 
-save(mega.mill.1, file="data/mega.mill.1.rdata")
-save(mega.mill.2, file="data/mega.mill.2.rdata")
+save(mega.mill.1, file="data/mega.mill.1.RData")
+save(mega.mill.2, file="data/mega.mill.2.RData")
 
 # examples?
 # library(reshape2)
@@ -105,7 +105,7 @@ power.ball <- cbind(power.ball,numbers)
 power.ball$numbers <- NULL
 names(power.ball)[3:7] <- c("N1","N2","N3","N4","N5")
 
-save(power.ball, file="data/power.ball.rdata")
+save(power.ball, file="data/power.ball.RData")
 
 
 # Cash 4 Life -------------------------------------------------------------
@@ -124,7 +124,7 @@ cash.4.life <- cbind(cash.4.life,numbers)
 cash.4.life$numbers <- NULL
 names(cash.4.life)[3:7] <- c("N1","N2","N3","N4","N5")
 
-save(cash.4.life, file="data/cash.4.life.rdata")
+save(cash.4.life, file="data/cash.4.life.RData")
 
 
 # $1,000,000 money ball ---------------------------------------------------
@@ -143,7 +143,7 @@ money.ball <- cbind(money.ball,numbers)
 money.ball$numbers <- NULL
 names(money.ball)[3:7] <- c("N1","N2","N3","N4","N5")
 
-save(money.ball, file="data/money.ball.rdata")
+save(money.ball, file="data/money.ball.RData")
 
 
 # Decades of Dollars ------------------------------------------------------
@@ -161,7 +161,7 @@ decades.of.dollars <- cbind(decades.of.dollars,numbers)
 decades.of.dollars$numbers <- NULL
 names(decades.of.dollars)[2:7] <- c("N1","N2","N3","N4","N5","N6")
 
-save(decades.of.dollars, file="data/decades.of.dollars.rdata")
+save(decades.of.dollars, file="data/decades.of.dollars.RData")
 
 
 
@@ -188,7 +188,7 @@ cash.5.1xday <- cbind(cash.5.1xday,numbers)
 cash.5.1xday$numbers <- NULL
 names(cash.5.1xday)[2:6] <- c("N1","N2","N3","N4","N5")
 
-save(cash.5.1xday, file="data/cash.5.1xday.rdata")
+save(cash.5.1xday, file="data/cash.5.1xday.RData")
 
 # Cash 5 (twice daily drawings)
 names(cash.5.2xday) <- c("date","day","night")
@@ -207,7 +207,7 @@ cash.5.2xday$numbers <- NULL
 names(cash.5.2xday)[3:7] <- c("N1","N2","N3","N4","N5")
 cash.5.2xday <- cash.5.2xday[order(cash.5.2xday$date, decreasing = TRUE),]
 rownames(cash.5.2xday) <- NULL
-save(cash.5.2xday, file="data/cash.5.2xday.rdata")
+save(cash.5.2xday, file="data/cash.5.2xday.RData")
 
 
 # Pick 4 ------------------------------------------------------------------
@@ -234,7 +234,7 @@ pick.4.1xday <- cbind(pick.4.1xday,numbers)
 pick.4.1xday$numbers <- NULL
 names(pick.4.1xday)[2:5] <- c("N1","N2","N3","N4")
 
-save(pick.4.1xday, file="data/pick.4.1xday.rdata")
+save(pick.4.1xday, file="data/pick.4.1xday.RData")
 
 # Pick 4 (twice daily drawings)
 names(pick.4.2xday) <- c("date","day","night")
@@ -252,7 +252,7 @@ pick.4.2xday$numbers <- NULL
 names(pick.4.2xday)[3:6] <- c("N1","N2","N3","N4")
 pick.4.2xday <- pick.4.2xday[order(pick.4.2xday$date, decreasing = TRUE),]
 rownames(pick.4.2xday) <- NULL
-save(pick.4.2xday, file="data/pick.4.2xday.rdata")
+save(pick.4.2xday, file="data/pick.4.2xday.RData")
 
 
 # Pick 3 ------------------------------------------------------------------
@@ -281,7 +281,7 @@ pick.3.1xday <- cbind(pick.3.1xday,numbers)
 pick.3.1xday$numbers <- NULL
 names(pick.3.1xday)[2:4] <- c("N1","N2","N3")
 
-save(pick.3.1xday, file="data/pick.3.1xday.rdata")
+save(pick.3.1xday, file="data/pick.3.1xday.RData")
 
 # Pick 3 (twice daily drawings)
 one.night <- unlist(lapply(pick.3.2xday,function(x)length(x)==3))
@@ -323,4 +323,4 @@ tmp2 <- tmp2[,c("date","time","N1","N2","N3")]
 pick.3.2xday <- rbind(pick.3.2xday,tmp2)
 pick.3.2xday <- pick.3.2xday[order(pick.3.2xday$date, decreasing = TRUE),]
 rownames(pick.3.2xday) <- NULL
-save(pick.3.2xday, file="data/pick.3.2xday.rdata")
+save(pick.3.2xday, file="data/pick.3.2xday.RData")
