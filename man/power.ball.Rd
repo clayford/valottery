@@ -21,7 +21,9 @@
 power.ball
 }
 \description{
-Historical data for the Power Ball game.
+Historical data for the Power Ball game. Game play: Pick
+five different numbers from 1 through 59; then select one
+Powerball number from 1 through 35.
 }
 \keyword{datasets}
 

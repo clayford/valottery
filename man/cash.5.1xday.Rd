@@ -20,8 +20,9 @@
 cash.5.1xday
 }
 \description{
-Historical data for the Cash 5 once daily game. On April 11, 1999,
-Cash 5 switched to twice daily drawings.
+Historical data for the Cash 5 once daily game. Game Play: Pick five
+numbers from 1 through 34. Note: On April 11, 1999, Cash 5 switched
+to twice daily drawings.
 }
 \keyword{datasets}
 

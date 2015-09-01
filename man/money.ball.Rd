@@ -7,7 +7,7 @@
 \format{A data frame with 100 rows and 7 variables:
 \describe{
   \item{date}{date of draw}
-  \item{moneyball}{money ball result}
+  \item{moneyball}{money ball result: yes or no}
   \item{N1}{1st number in order}
   \item{N2}{2nd number in order}
   \item{N3}{3rd number in order}

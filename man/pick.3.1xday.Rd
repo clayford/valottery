@@ -4,12 +4,12 @@
 \name{pick.3.1xday}
 \alias{pick.3.1xday}
 \title{Pick 3 (once daily)}
-\format{A data frame with 1777 rows and 4 variables:
+\format{A data frame with 1,777 rows and 4 variables:
 \describe{
   \item{date}{date of draw}
-  \item{N1}{1st number in order}
-  \item{N2}{2nd number in order}
-  \item{N3}{3rd number in order}
+  \item{N1}{1st digit}
+  \item{N2}{2nd digit}
+  \item{N3}{3rd digit}
 }}
 \source{
 \url{https://www.valottery.com}
@@ -18,7 +18,8 @@
 pick.3.1xday
 }
 \description{
-Historical data for the Pick 3 once daily game. On January 30, 1995,
+Historical data for the Pick 3 once daily game. Game Play:
+Pick a three digit number from 000 through 999. Note: On January 30, 1995,
 Pick 3 switched to twice daily drawings.
 }
 \keyword{datasets}

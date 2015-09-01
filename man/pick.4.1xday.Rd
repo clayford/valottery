@@ -4,13 +4,13 @@
 \name{pick.4.1xday}
 \alias{pick.4.1xday}
 \title{Pick 4 (once daily)}
-\format{A data frame with 1041 rows and 5 variables:
+\format{A data frame with 1,041 rows and 5 variables:
 \describe{
   \item{date}{date of draw}
-  \item{N1}{1st number in order}
-  \item{N2}{2nd number in order}
-  \item{N3}{3rd number in order}
-  \item{N4}{4th number in order}
+  \item{N1}{1st digit}
+  \item{N2}{2nd digit}
+  \item{N3}{3rd digit}
+  \item{N4}{4th digit}
 }}
 \source{
 \url{https://www.valottery.com}
@@ -19,7 +19,8 @@
 pick.4.1xday
 }
 \description{
-Historical data for the Pick 4 once daily game. On January 30, 1995,
+Historical data for the Pick 4 once daily game. Game play: Pick
+a four digit number from 0000 through 9999. Note: On January 30, 1995,
 Pick 4 switched to twice daily drawings.
 }
 \keyword{datasets}

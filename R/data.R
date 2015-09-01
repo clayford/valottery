@@ -1,7 +1,8 @@
 #' Mega Millions (Before 10/22/13)
 #'
 #' Historical data for the Mega Millions game. On October 22, 2013, the format changed
-#' from 5/56 + 1/46 to the current 5/75 + 1/15 format.
+#' from 5/56 + 1/46 to the current 5/75 + 1/15 format. Game play: Pick five different
+#' numbers from 1 through 75; then select one Mega Ball number from 1 through 15.
 #' @format A data frame with 1713 rows and 7 variables:
 #' \describe{
 #'   \item{date}{date of draw}
@@ -19,7 +20,8 @@
 #' Mega Millions (10/22/13 and beyond)
 #'
 #' Historical data for the Mega Millions game. On October 22, 2013, the format changed
-#' from 5/56 + 1/46 to the current 5/75 + 1/15 format.
+#' from 5/56 + 1/46 to the current 5/75 + 1/15 format. Game play: Pick five different
+#' numbers from 1 through 56; then select one Mega Ball number from 1 through 46.
 #' @format A data frame with 194 rows and 7 variables:
 #' \describe{
 #'   \item{date}{date of draw}
@@ -36,7 +38,9 @@
 
 #' Power Ball
 #'
-#' Historical data for the Power Ball game.
+#' Historical data for the Power Ball game. Game play: Pick
+#' five different numbers from 1 through 59; then select one
+#' Powerball number from 1 through 35.
 #' @format A data frame with 582 rows and 7 variables:
 #' \describe{
 #'   \item{date}{date of draw}
@@ -53,7 +57,7 @@
 
 #' CASH4LIFE
 #'
-#' Historical data for the CASH4LIFE game. Pick five different numbers from 1 through 60;
+#' Historical data for the CASH4LIFE game. Game play: Pick five different numbers from 1 through 60;
 #' then select one Cash Ball number from 1 through 4.
 #' @format A data frame with 34 rows and 7 variables:
 #' \describe{
@@ -78,7 +82,7 @@
 #' @format A data frame with 100 rows and 7 variables:
 #' \describe{
 #'   \item{date}{date of draw}
-#'   \item{moneyball}{money ball result}
+#'   \item{moneyball}{money ball result: yes or no}
 #'   \item{N1}{1st number in order}
 #'   \item{N2}{2nd number in order}
 #'   \item{N3}{3rd number in order}
@@ -110,8 +114,9 @@
 
 #' Cash 5 (once daily)
 #'
-#' Historical data for the Cash 5 once daily game. On April 11, 1999,
-#' Cash 5 switched to twice daily drawings.
+#' Historical data for the Cash 5 once daily game. Game Play: Pick five
+#' numbers from 1 through 34. Note: On April 11, 1999, Cash 5 switched
+#' to twice daily drawings.
 #' @format A data frame with 1187 rows and 6 variables:
 #' \describe{
 #'   \item{date}{date of draw}
@@ -127,8 +132,9 @@
 
 #' Cash 5 (twice daily)
 #'
-#' Historical data for the Cash 5 twice daily game. On April 11, 1999,
-#' Cash 5 switched to twice daily drawings.
+#' Historical data for the Cash 5 twice daily game. Game Play: Pick five
+#' numbers from 1 through 34. Note: On April 11, 1999, Cash 5 switched
+#' to twice daily drawings.
 #' @format A data frame with 11,164 rows and 7 variables:
 #' \describe{
 #'   \item{date}{date of draw}
@@ -145,15 +151,16 @@
 
 #' Pick 4 (once daily)
 #'
-#' Historical data for the Pick 4 once daily game. On January 30, 1995,
+#' Historical data for the Pick 4 once daily game. Game play: Pick
+#' a four digit number from 0000 through 9999. Note: On January 30, 1995,
 #' Pick 4 switched to twice daily drawings.
-#' @format A data frame with 1041 rows and 5 variables:
+#' @format A data frame with 1,041 rows and 5 variables:
 #' \describe{
 #'   \item{date}{date of draw}
-#'   \item{N1}{1st number in order}
-#'   \item{N2}{2nd number in order}
-#'   \item{N3}{3rd number in order}
-#'   \item{N4}{4th number in order}
+#'   \item{N1}{1st digit}
+#'   \item{N2}{2nd digit}
+#'   \item{N3}{3rd digit}
+#'   \item{N4}{4th digit}
 #' }
 #' @source \url{https://www.valottery.com}
 #'
@@ -161,16 +168,17 @@
 
 #' Pick 4 (twice daily)
 #'
-#' Historical data for the Pick 4 twice daily game. On January 30, 1995,
+#' Historical data for the Pick 4 twice daily game. Game play: Pick
+#' a four digit number from 0000 through 9999. Note: On January 30, 1995,
 #' Pick 4 switched to twice daily drawings.
-#' @format A data frame with 13788 rows and 6 variables:
+#' @format A data frame with 13,788 rows and 6 variables:
 #' \describe{
 #'   \item{date}{date of draw}
 #'   \item{time}{time of drawing: day or night}
-#'   \item{N1}{1st number in order}
-#'   \item{N2}{2nd number in order}
-#'   \item{N3}{3rd number in order}
-#'   \item{N4}{4th number in order}
+#'   \item{N1}{1st digit}
+#'   \item{N2}{2nd digit}
+#'   \item{N3}{3rd digit}
+#'   \item{N4}{4th digit}
 #' }
 #' @source \url{https://www.valottery.com}
 #'
@@ -178,14 +186,15 @@
 
 #' Pick 3 (once daily)
 #'
-#' Historical data for the Pick 3 once daily game. On January 30, 1995,
+#' Historical data for the Pick 3 once daily game. Game Play:
+#' Pick a three digit number from 000 through 999. Note: On January 30, 1995,
 #' Pick 3 switched to twice daily drawings.
-#' @format A data frame with 1777 rows and 4 variables:
+#' @format A data frame with 1,777 rows and 4 variables:
 #' \describe{
 #'   \item{date}{date of draw}
-#'   \item{N1}{1st number in order}
-#'   \item{N2}{2nd number in order}
-#'   \item{N3}{3rd number in order}
+#'   \item{N1}{1st digit}
+#'   \item{N2}{2nd digit}
+#'   \item{N3}{3rd digit}
 #' }
 #' @source \url{https://www.valottery.com}
 #'
@@ -193,16 +202,17 @@
 
 #' Pick 3 (twice daily)
 #'
-#' Historical data for the Pick 3 twice daily game. On January 30, 1995,
+#' Historical data for the Pick 3 twice daily game. Game Play:
+#' Pick a three digit number from 000 through 999. Note: On January 30, 1995,
 #' Pick 3 switched to twice daily drawings.
-#' @format A data frame with 13790 rows and 5 variables:
+#' @format A data frame with 13,790 rows and 5 variables:
 #' \describe{
 #'   \item{date}{date of draw}
 #'   \item{time}{time of drawing: day, night1 or night2 (Note: two nightly drawings were held
 #'   on 10/30/08 and 11/09/08)}
-#'   \item{N1}{1st number in order}
-#'   \item{N2}{2nd number in order}
-#'   \item{N3}{3rd number in order}
+#'   \item{N1}{1st digit}
+#'   \item{N2}{2nd digit}
+#'   \item{N3}{3rd digit}
 #' }
 #' @source \url{https://www.valottery.com}
 #'

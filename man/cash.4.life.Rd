@@ -21,7 +21,7 @@
 cash.4.life
 }
 \description{
-Historical data for the CASH4LIFE game. Pick five different numbers from 1 through 60;
+Historical data for the CASH4LIFE game. Game play: Pick five different numbers from 1 through 60;
 then select one Cash Ball number from 1 through 4.
 }
 \keyword{datasets}

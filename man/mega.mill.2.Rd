@@ -22,7 +22,8 @@ mega.mill.2
 }
 \description{
 Historical data for the Mega Millions game. On October 22, 2013, the format changed
-from 5/56 + 1/46 to the current 5/75 + 1/15 format.
+from 5/56 + 1/46 to the current 5/75 + 1/15 format. Game play: Pick five different
+numbers from 1 through 56; then select one Mega Ball number from 1 through 46.
 }
 \keyword{datasets}
 
