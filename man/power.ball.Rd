@@ -7,7 +7,7 @@
 \format{A data frame with 582 rows and 7 variables:
 \describe{
   \item{date}{date of draw}
-  \item{megaball}{powerball result}
+  \item{powerball}{powerball result}
   \item{N1}{1st number in order}
   \item{N2}{2nd number in order}
   \item{N3}{3rd number in order}
