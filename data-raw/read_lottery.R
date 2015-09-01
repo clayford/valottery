@@ -212,7 +212,7 @@ save(cash.5.2xday, file="data/cash.5.2xday.rdata")
 
 # Pick 4 ------------------------------------------------------------------
 
-# On April 11, 1999, Cash 5 switched to twice daily drawings
+# On Jan 30, 1995, Pick 4 switched to twice daily drawings
 pick.4 <- p4_data[grepl(pattern = "^[0-9]",p4_data)]
 pick.4 <- strsplit(pick.4,split = ";")
 spt <- which(diff(sapply(pick.4,length))!=0)
@@ -236,7 +236,7 @@ names(pick.4.1xday)[2:5] <- c("N1","N2","N3","N4")
 
 save(pick.4.1xday, file="data/pick.4.1xday.rdata")
 
-# Cash 5 (twice daily drawings)
+# Pick 4 (twice daily drawings)
 names(pick.4.2xday) <- c("date","day","night")
 pick.4.2xday$date <- as.Date(as.character(pick.4.2xday$date),format="%m/%d/%Y")
 
@@ -258,3 +258,69 @@ save(pick.4.2xday, file="data/pick.4.2xday.rdata")
 # Pick 3 ------------------------------------------------------------------
 
 
+# On Jan 30, 1995, Pick 3 switched to twice daily drawings;
+pick.3 <- p3_data[grepl(pattern = "^[0-9]",p3_data)]
+pick.3 <- strsplit(pick.3,split = ";")
+spt <- which(diff(sapply(pick.3,length))!=0)
+# On 10/30/08 and 11/09/08 there were two night drawings
+
+pick.3.1xday <- pick.3[(spt[5]+1):length(pick.3)]
+pick.3.2xday <- pick.3[1:spt[5]]
+
+pick.3.1xday <- as.data.frame(do.call(what = rbind,args = pick.3.1xday))
+
+
+# Pick 3 (1x day drawing)
+names(pick.3.1xday) <- c("date","numbers")
+pick.3.1xday$date <- as.Date(as.character(pick.3.1xday$date),format="%m/%d/%Y")
+pick.3.1xday$numbers <- sub(" Night: ","",as.character(pick.3.1xday$numbers))
+numbers <- do.call(rbind,strsplit(as.character(pick.3.1xday$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+
+pick.3.1xday <- cbind(pick.3.1xday,numbers)
+pick.3.1xday$numbers <- NULL
+names(pick.3.1xday)[2:4] <- c("N1","N2","N3")
+
+save(pick.3.1xday, file="data/pick.3.1xday.rdata")
+
+# Pick 3 (twice daily drawings)
+one.night <- unlist(lapply(pick.3.2xday,function(x)length(x)==3))
+tmp <- pick.3.2xday[one.night]
+tmp2 <- pick.3.2xday[!one.night]
+
+# the normal twice dailies
+pick.3.2xday <- as.data.frame(do.call(what = rbind,args = tmp))
+names(pick.3.2xday) <- c("date","day","night")
+pick.3.2xday$date <- as.Date(as.character(pick.3.2xday$date),format="%m/%d/%Y")
+
+pick.3.2xday$day <- sub(" Day: ","",as.character(pick.3.2xday$day))
+pick.3.2xday$night <- sub(" Night: ","",as.character(pick.3.2xday$night))
+
+pick.3.2xday <- melt(pick.3.2xday,id.vars = "date",variable.name = "time",value.name = "numbers")
+numbers <- do.call(rbind,strsplit(as.character(pick.3.2xday$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+
+pick.3.2xday <- cbind(pick.3.2xday,numbers)
+pick.3.2xday$numbers <- NULL
+names(pick.3.2xday)[3:5] <- c("N1","N2","N3")
+
+levels(pick.3.2xday$time)[2] <- "night1"
+
+# two special nights
+tmp2 <- as.data.frame(do.call(what = rbind,args = tmp2))
+names(tmp2) <- c("date","numbers")
+tmp2$date <- as.Date(as.character(tmp2$date),format="%m/%d/%Y")
+tmp2$numbers <- sub(" Night: ","",as.character(tmp2$numbers))
+numbers <- do.call(rbind,strsplit(as.character(tmp2$numbers),","))
+numbers <- as.data.frame(apply(numbers,2,as.numeric))
+
+tmp2 <- cbind(tmp2,numbers)
+tmp2$numbers <- NULL
+names(tmp2)[2:4] <- c("N1","N2","N3")
+tmp2$time <- factor("night2", levels = c("day","night1","night2"))
+tmp2 <- tmp2[,c("date","time","N1","N2","N3")]
+
+pick.3.2xday <- rbind(pick.3.2xday,tmp2)
+pick.3.2xday <- pick.3.2xday[order(pick.3.2xday$date, decreasing = TRUE),]
+rownames(pick.3.2xday) <- NULL
+save(pick.3.2xday, file="data/pick.3.2xday.rdata")

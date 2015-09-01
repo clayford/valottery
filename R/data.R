@@ -175,3 +175,35 @@
 #' @source \url{https://www.valottery.com}
 #'
 "pick.4.2xday"
+
+#' Pick 3 (once daily)
+#'
+#' Historical data for the Pick 3 once daily game. On January 30, 1995,
+#' Pick 3 switched to twice daily drawings.
+#' @format A data frame with 1777 rows and 4 variables:
+#' \describe{
+#'   \item{date}{date of draw}
+#'   \item{N1}{1st number in order}
+#'   \item{N2}{2nd number in order}
+#'   \item{N3}{3rd number in order}
+#' }
+#' @source \url{https://www.valottery.com}
+#'
+"pick.3.1xday"
+
+#' Pick 3 (twice daily)
+#'
+#' Historical data for the Pick 3 twice daily game. On January 30, 1995,
+#' Pick 3 switched to twice daily drawings.
+#' @format A data frame with 13790 rows and 5 variables:
+#' \describe{
+#'   \item{date}{date of draw}
+#'   \item{time}{time of drawing: day, night1 or night2 (Note: two nightly drawings were held
+#'   on 10/30/08 and 11/09/08)}
+#'   \item{N1}{1st number in order}
+#'   \item{N2}{2nd number in order}
+#'   \item{N3}{3rd number in order}
+#' }
+#' @source \url{https://www.valottery.com}
+#'
+"pick.3.2xday"
