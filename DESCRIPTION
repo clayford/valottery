@@ -4,7 +4,7 @@ Title: Results from the Virginia Lottery Draw Games
 Version: 0.1
 Date: 2015-08-31
 Authors@R: 'Clay Ford <joe.clayton.ford@gmail.com> [aut,cre]'
-Maintainer: Clay Ford <yourfault@somewhere.net>
+Maintainer: Clay Ford <joe.clayton.ford@gmail.com>
 Description: This package contains historical results for the state of Virginia lottery draw games. Data were downloaded from https://www.valottery.com/. 
 License: CC0
 LazyData: TRUE
