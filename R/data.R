@@ -188,6 +188,7 @@
 #' @source \url{https://www.valottery.com}
 #' @examples
 #' ## Any Pick 4 happen more than once?
+#' results <- apply(pick.4.1xday[,-1],1,function(x)paste(x,collapse = ""))
 #' any(table(results) > 1)
 #' ## Which numbers?
 #' i <- which(table(results) > 1,useNames = FALSE)
