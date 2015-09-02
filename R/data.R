@@ -85,9 +85,9 @@
 
 #' $1,000,000 Money Ball
 #'
-#' Historical data for the $1,000,000 Money Ball game. You pick five (5) numbers,
-#' the Lottery will then select five (5) numbered balls, and if the Gold Million Dollar
-#' Money Ball is drawn before all five (5) numbers have been selected, the top prize
+#' Historical data for the $1,000,000 Money Ball game. Game Play: pick five numbers
+#' 1 - 35, the Lottery then selects five numbered balls. If the Gold Million Dollar
+#' Money Ball is drawn before all five numbers have been selected, the top prize
 #' jumps to $1,000,000. Note: This game was discontinued 8/29/15.
 #' @format A data frame with 100 rows and 7 variables:
 #' \describe{
