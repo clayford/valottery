@@ -100,7 +100,14 @@
 #'   \item{N5}{5th number in order}
 #' }
 #' @source \url{https://www.valottery.com}
-#'
+#' @examples
+#' ## probability of drawing money ball before first 5 balls
+#' (1/36) + (1/35) + (1/34) + (1/33) + (1/32)
+#' ## observed money ball results
+#' prop.table(table(money.ball$moneyball))
+#' ## simulate money ball draws before first 5 draws
+#' set.seed(123)
+#' mean(replicate(1000, any(sample(c(1:35,"mb"),5)=="mb")))
 "money.ball"
 
 #' Decades of Dollars
@@ -156,7 +163,13 @@
 #'   \item{N5}{5th number in order}
 #' }
 #' @source \url{https://www.valottery.com}
-#'
+#' @examples
+#' max.days <- apply(subset(cash.5.2xday,time=="day",-(1:2)),1,max)
+#' max.nights <- apply(subset(cash.5.2xday,time=="night",-(1:2)),1,max)
+#' op <- par(mfrow=c(1,2))
+#' hist(max.days)
+#' hist(max.nights)
+#' par(op)
 "cash.5.2xday"
 
 #' Pick 4 (once daily)
@@ -173,7 +186,12 @@
 #'   \item{N4}{4th digit}
 #' }
 #' @source \url{https://www.valottery.com}
-#'
+#' @examples
+#' ## Any Pick 4 happen more than once?
+#' any(table(results) > 1)
+#' ## Which numbers?
+#' i <- which(table(results) > 1,useNames = FALSE)
+#' sort(table(results)[i],decreasing = TRUE)
 "pick.4.1xday"
 
 #' Pick 4 (twice daily)
@@ -207,7 +225,8 @@
 #'   \item{N3}{3rd digit}
 #' }
 #' @source \url{https://www.valottery.com}
-#'
+#' @examples
+#' lapply(pick.3.1xday[,-1],function(x)round(prop.table(table(x)),2))
 "pick.3.1xday"
 
 #' Pick 3 (twice daily)

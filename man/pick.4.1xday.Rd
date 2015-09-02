@@ -23,5 +23,12 @@ Historical data for the Pick 4 once daily game. Game play: Pick
 a four digit number from 0000 through 9999. Note: On January 30, 1995,
 Pick 4 switched to twice daily drawings.
 }
+\examples{
+## Any Pick 4 happen more than once?
+any(table(results) > 1)
+## Which numbers?
+i <- which(table(results) > 1,useNames = FALSE)
+sort(table(results)[i],decreasing = TRUE)
+}
 \keyword{datasets}
 

@@ -22,5 +22,8 @@ Historical data for the Pick 3 once daily game. Game Play:
 Pick a three digit number from 000 through 999. Note: On January 30, 1995,
 Pick 3 switched to twice daily drawings.
 }
+\examples{
+lapply(pick.3.1xday[,-1],function(x)round(prop.table(table(x)),2))
+}
 \keyword{datasets}
 
