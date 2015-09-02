@@ -4,7 +4,7 @@
 \name{mega.mill.1}
 \alias{mega.mill.1}
 \title{Mega Millions (Before 10/22/13)}
-\format{A data frame with 1713 rows and 7 variables:
+\format{A data frame with 1,713 rows and 7 variables:
 \describe{
   \item{date}{date of draw}
   \item{megaball}{megaball result}

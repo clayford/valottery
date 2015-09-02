@@ -25,5 +25,13 @@ Historical data for the Power Ball game. Game play: Pick
 five different numbers from 1 through 59; then select one
 Powerball number from 1 through 35.
 }
+\examples{
+## According to game rules, the powerball is numbered 1 - 35,
+## but apparently there were times when it went up to 39
+i <- power.ball$powerball > 35
+any(i)
+sum(i)
+power.ball$powerball[i]
+}
 \keyword{datasets}
 

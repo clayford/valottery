@@ -3,7 +3,7 @@
 #' Historical data for the Mega Millions game. On October 22, 2013, the format changed
 #' from 5/56 + 1/46 to the current 5/75 + 1/15 format. Game play: Pick five different
 #' numbers from 1 through 75; then select one Mega Ball number from 1 through 15.
-#' @format A data frame with 1713 rows and 7 variables:
+#' @format A data frame with 1,713 rows and 7 variables:
 #' \describe{
 #'   \item{date}{date of draw}
 #'   \item{megaball}{megaball result}
@@ -52,7 +52,13 @@
 #'   \item{N5}{5th number in order}
 #' }
 #' @source \url{https://www.valottery.com}
-#'
+#' @examples
+#' ## According to game rules, the powerball is numbered 1 - 35,
+#' ## but apparently there were times when it went up to 39
+#' i <- power.ball$powerball > 35
+#' any(i)
+#' sum(i)
+#' power.ball$powerball[i]
 "power.ball"
 
 #' CASH4LIFE
@@ -70,7 +76,11 @@
 #'   \item{N5}{5th number in order}
 #' }
 #' @source \url{https://www.valottery.com}
-#'
+#' @examples
+#' ## Check numbers drawn are uniformly distributed
+#' x <- qunif(ppoints(nrow(cash.4.life)*5),1,60)
+#' y <- sort(unlist(cash.4.life[,3:7]))
+#' qqplot(x,y)
 "cash.4.life"
 
 #' $1,000,000 Money Ball

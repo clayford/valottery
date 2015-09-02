@@ -24,5 +24,11 @@ cash.4.life
 Historical data for the CASH4LIFE game. Game play: Pick five different numbers from 1 through 60;
 then select one Cash Ball number from 1 through 4.
 }
+\examples{
+## Check numbers drawn are uniformly distributed
+x <- qunif(ppoints(nrow(cash.4.life)*5),1,60)
+y <- sort(unlist(cash.4.life[,3:7]))
+qqplot(x,y)
+}
 \keyword{datasets}
 
